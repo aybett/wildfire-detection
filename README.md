@@ -1,7 +1,7 @@
 # Wildfire Detection with Deep Learning
 
-This project aims to detect wildfire images using a CNN-based deep learning model.
-The Wildfire Dataset from Kaggle was used.
+Bu projede, orman yangını fotoğraflarını tespit etmek için CNN tabanlı bir derin öğrenme modeli kullanılmıştır. 
+Kaggle üzerindeki "The Wildfire Dataset" veri seti kullanılmıştır.
 
 
 ## Dataset
@@ -15,16 +15,18 @@ her klasörde `fire` ve `nofire` sınıfları bulunmaktadır.
 - Classes: fire, nofire
 - Training images: 1887
 - Validation images: 402
+- Test images: 410
 
 
 ## Model
 - Pretrained ResNet18
-- Binary classification
+- Binary classification (fire/nofire)
 
 ## Results
-- Accuracy: ~83%
+- Accuracy (Doğruluk): ~83%
 
 ## How to Run
 1. Install requirements
-2. Run train_model.py
-3. Run evaluate_model.py
+2. Run train_model.py (eğitme)
+3. Run evaluate_model.py (değerlendirme)
+4. Run predict_single_image.py (deneme)
