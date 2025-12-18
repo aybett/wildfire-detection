@@ -5,12 +5,11 @@ from PIL import Image, ImageDraw, ImageFont, ImageFile
 import os
 import random
 
-# -----------------------------
+
 # PIL büyük resim uyarılarını kapat
 Image.MAX_IMAGE_PIXELS = None
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-# -----------------------------
 # Modeli yükle
 device = torch.device("cpu")
 
@@ -21,7 +20,6 @@ model.load_state_dict(torch.load("wildfire_model.pth", map_location=device))
 model.eval()
 model.to(device)
 
-# -----------------------------
 # Test veri seti path'i
 test_dir = "archive/the_wildfire_dataset_2n_version/test"
 
@@ -32,7 +30,6 @@ class_path = os.path.join(test_dir, selected_class)
 selected_image = random.choice(os.listdir(class_path))
 image_path = os.path.join(class_path, selected_image)
 
-# -----------------------------
 # Görüntüyü aç ve preprocess et
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
@@ -42,7 +39,6 @@ transform = transforms.Compose([
 image = Image.open(image_path).convert("RGB")
 image_tensor = transform(image).unsqueeze(0).to(device)
 
-# -----------------------------
 # Tahmin
 with torch.no_grad():
     output = model(image_tensor)
@@ -50,7 +46,6 @@ with torch.no_grad():
 
 predicted_class = classes[prediction]
 
-# -----------------------------
 # Görselleştirme
 draw = ImageDraw.Draw(image)
 try:
