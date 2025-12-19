@@ -2,6 +2,9 @@
 
 Bu projede, orman yangını fotoğraflarını tespit etmek için CNN tabanlı bir derin öğrenme modeli kullanılmıştır. 
 Kaggle üzerindeki "The Wildfire Dataset" veri seti kullanılmıştır.
+- Gradio kullanılarak model için basit bir kullanıcı arayüzü oluşturulmuştur.
+- Test veri setinden rastgele seçilen bir görüntü üzerinde tahmin yapılabilmektedir.
+
 
 
 ## Dataset
@@ -30,3 +33,4 @@ her klasörde `fire` ve `nofire` sınıfları bulunmaktadır.
 2. Run train_model.py (eğitme)
 3. Run evaluate_model.py (değerlendirme)
 4. Run predict_single_image.py (deneme)
+5. Run gradio_app.py (kendin yükleyerek dene)
